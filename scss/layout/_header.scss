@@ -1,0 +1,125 @@
+#header{
+	position: relative;
+	background: $black;
+	.container{
+		@extend %clearfix;
+	}
+	a{
+		position: relative;
+		color: $white;
+		&:hover{
+			color: $orange;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+			bottom: 0;
+			left: 50%;
+			right: 50%;
+			height: 1px;
+			background: $orange;
+		}
+		&:hover:after{
+			left: 0;
+			right: 0;
+		}
+	}
+}
+.main-nav{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	@extend %listreset;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 999;
+	@include media('>=tablet') {
+		position: static;
+		visibility: visible;
+		opacity: 1;
+	}
+	li{
+		text-align: center;
+		display: block;
+		padding: 0;
+		font-size: 14px;
+		background:$black;
+		padding: 5px 0;
+		border-bottom: 1px solid $blue;
+		@include media('>=tablet') {
+			display: inline-block;
+			padding: 10px 15px;
+			border-bottom: none;
+		}
+		&:first-child{
+			padding: 5px 0;
+			border-top: 1px solid $blue;
+			@include media('>=tablet') {
+				padding: 10px 15px 10px  0;
+				border-top: none;
+			}
+		}
+		&:last-child{
+			border-bottom: none;
+		}
+	}
+}
+
+
+
+
+.open-menu{
+	width: 32px;
+	height: 27px;
+	float: right;
+	position: relative;
+	background: $blue;
+	border-radius: 3px;
+	margin: 10px;
+	@include media('>=tablet') {
+		display: none;
+	}
+	&:before,
+	span,
+	&:after{
+		content: '';
+		position: absolute;
+		left: 3px;
+		right: 3px;
+		height: 3px;
+		background:$white;
+		border-radius: 10%;
+		transition: all .3s ease-in-out;
+	}
+	&:before{
+		top: 5px;
+	}
+	span{
+		top:12px;
+	}
+	&:after{
+		bottom: 5px;
+	}
+}
+.show{
+	.main-nav{
+		visibility: visible;
+		opacity: 1;
+		transition: all .8s ease-in-out;
+	}
+	.open-menu{
+		span{
+			opacity: 0;
+		}
+		&:before{
+			transform: rotate(45deg);
+			top: 12px;
+		}
+		&:after{
+			transform: rotate(-45deg);
+			bottom: 12px;
+		}
+	}
+}

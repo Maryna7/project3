@@ -1,0 +1,84 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+* {max-height: 1000000px;}
+
+body {
+	color: $base-text-color;
+	background: $base-background-color;
+	font: #{$font-size-base}/#{$line-height-base} $base-font-sans-serif;
+	min-width: $base-min-width;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+p {
+	margin: 0 0 10px;
+}
+
+a {
+	color: $gray;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+		opacity: .8;
+	}
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: $base-font-sans-serif;
+	margin: 0 0 0.5em;
+}
+// h1{
+// 	font-size: 42px;
+// }
+// h2{
+// 	font-size: 26px;
+// }
+// h3{
+// 	font-size: 20px;
+// }
+// h4{
+// 	font-size: 18px;
+// }
+// h5{
+// 	font-size: 16px;
+// }
+// h6{
+// 	font-size: 14px;
+// }
+
+
+#wrapper{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	margin:0 auto;
+	text-align: left;
+}
+
+.container{
+	width: 100%;
+	max-width: 795px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+.btn{
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 2px;
+	@include animate(background);
+	background:$orange;
+	padding: 0;
+	color: $white;
+	&:hover{
+		background:darken($orange, 3);
+	}
+}
